@@ -8,9 +8,15 @@ public class movement : MonoBehaviour
     private bool touchStart = false;
     private Vector2 pointA;
     private Vector2 pointB;
-
     public Transform circle;
     public Transform outerCircle;
+
+    //IDK this one, copied from https://pressstart.vip/tutorials/2018/06/22/39/mobile-joystick-in-unity.html
+    private void Start()
+    {
+        circle.GetComponent<SpriteRenderer>().enabled = true;
+        outerCircle.GetComponent<SpriteRenderer>().enabled = true;
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
