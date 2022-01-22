@@ -10,6 +10,8 @@ public class PlayerAttack : MonoBehaviour
     public int attackDamage;
     public float attackRate =2f;
     private float nextAttackTime = 0f;
+
+
     // TODO: Attack when clicked on right half of screen
     void Update()
     {

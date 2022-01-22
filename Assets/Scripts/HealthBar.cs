@@ -6,12 +6,8 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
 
-    private Transform bar;
-    private void Start()
-    {
-        //Find object named Bar
-        bar = transform.Find("Bar");
-    }
+    public Transform bar;
+
     public void SetHealth(float health)
     {
         //Resize bar
