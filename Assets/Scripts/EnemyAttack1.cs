@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttack1 : MonoBehaviour
 {
-    public Transform attackPoint;
     public float attackRange;
     public LayerMask AllyLayer;
     public float attackRate = 1f;
     private float nextAttackTime = 0f;
+
+    private void Start()
+    {
+        attackRange = transform.GetComponent<CircleCollider2D>().radius;
+    }
 
     void Update()
     {
@@ -22,7 +24,7 @@ public class EnemyAttack1 : MonoBehaviour
         //Put attack animation
 
         //Detect enemy in range
-        Collider2D[] hitAllies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, AllyLayer);
+        Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position, attackRange, AllyLayer);
 
         //Damage enemy
         foreach (Collider2D enemy in hitAllies)
@@ -30,13 +32,5 @@ public class EnemyAttack1 : MonoBehaviour
             enemy.GetComponent<PlayerHealth>().TakeDamage();
             nextAttackTime = Time.time + 1f / attackRate;
         }
-    }
-
-    //Draw wireFrame(*Only visible in the editor)
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-            return;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
