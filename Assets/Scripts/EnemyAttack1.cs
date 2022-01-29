@@ -27,8 +27,9 @@ public class EnemyAttack1 : MonoBehaviour
         Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position, attackRange, AllyLayer);
 
         // Damage enemy
-        foreach (Collider2D ally in hitAllies)
+        foreach (BoxCollider2D ally in hitAllies)
         {
+            Debug.Log("Ally Found");
             ally.GetComponent<PlayerHealth>().TakeDamage();
             nextAttackTime = Time.time + 1f / attackRate;
         }
