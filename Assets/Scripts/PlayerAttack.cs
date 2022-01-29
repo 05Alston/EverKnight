@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
-    public float attackRange;
+    private float attackRange;
     public LayerMask enemyLayer;
     public int attackDamage;
     public float attackRate =2f;
@@ -39,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
         // Damage enemy
         foreach (Collider2D enemy in hitEnemies)
         {
+            Debug.Log("Enemies found");
             enemy.GetComponent<enemyHealth>().TakeDamage(attackDamage);
         }
     }

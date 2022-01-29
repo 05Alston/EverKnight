@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         // TODO: Play die animation
-        Debug.Log("Ally Dead");
+        Debug.Log("You Died");
         // TODO: Disable/Destroy enemy
     }
 }

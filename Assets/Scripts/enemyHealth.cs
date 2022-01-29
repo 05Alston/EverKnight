@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemyHealth : MonoBehaviour
 {
 
-    public float maxHealth = 100;
+    public float maxHealth = 10;
     public float currentHealth;
     [SerializeField] public HealthBar healthBar;// Healthbar will have value between 0 and 1
 

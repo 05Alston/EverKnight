@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyAttack1 : MonoBehaviour
 {
-    public float attackRange;
+    private float attackRange;
     public LayerMask AllyLayer;
     public float attackRate = 1f;
     private float nextAttackTime = 0f;
@@ -21,15 +21,15 @@ public class EnemyAttack1 : MonoBehaviour
     }
     private void Attack()
     {
-        //Put attack animation
+        // Put attack animation
 
-        //Detect enemy in range
+        // Detect enemy in range
         Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position, attackRange, AllyLayer);
 
-        //Damage enemy
-        foreach (Collider2D enemy in hitAllies)
+        // Damage enemy
+        foreach (Collider2D ally in hitAllies)
         {
-            enemy.GetComponent<PlayerHealth>().TakeDamage();
+            ally.GetComponent<PlayerHealth>().TakeDamage();
             nextAttackTime = Time.time + 1f / attackRate;
         }
     }

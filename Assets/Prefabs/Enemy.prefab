@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 10
+  moveSpeed: 5
   delay: 2
 --- !u!114 &6719040118564490798
 MonoBehaviour:
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8a32e329a6ede4597449c069967291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 5
   currentHealth: 0
   healthBar: {fileID: 6719040118614232345}
 --- !u!114 &6719040118564490799
@@ -78,8 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc6a8eee58c119408c05c3030b2ddd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 0}
-  attackRange: 0.8
   AllyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -99,7 +97,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.9
+  m_Radius: 0.8
 --- !u!1 &6719040118614232344
 GameObject:
   m_ObjectHideFlags: 0
