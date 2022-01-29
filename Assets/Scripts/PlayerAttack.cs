@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private float attackRange;
+    public Transform attackPoint;
+    public float attackRange;
     public LayerMask enemyLayer;
     public int attackDamage;
     public float attackRate =2f;
@@ -11,10 +12,6 @@ public class PlayerAttack : MonoBehaviour
 
     // TODO: Attack when clicked on right half of screen
 
-    private void Start()
-    {
-        attackRange = transform.GetComponent<CircleCollider2D>().radius;
-    }
     void Update()
     {
         // Added delay between attacks
@@ -33,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
         // Put attack animation
 
         // Detect enemy in range
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         // Damage enemy
         foreach (Collider2D enemy in hitEnemies)
@@ -42,5 +39,13 @@ public class PlayerAttack : MonoBehaviour
             enemy.GetComponent<enemyHealth>().TakeDamage(attackDamage);
         }
     }
- 
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+
 }
