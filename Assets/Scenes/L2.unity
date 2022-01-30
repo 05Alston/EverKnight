@@ -268,6 +268,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31349872}
   m_CullTransparentMesh: 1
+--- !u!114 &83014909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+  m_PrefabInstance: {fileID: 899511259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &110130089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1817,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -559639735
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 6371864036279429099, guid: 12c10f7411f97114ea14df07aa74950d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1916,10 +1927,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 257033077}
     m_Modifications:
+    - target: {fileID: 270299780938864279, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2871751704120939989, guid: 8c1c5ac85d328b9419de8beb3a52df3b, type: 3}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1722289470}
+    - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1984,6 +2003,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -559639735
       objectReference: {fileID: 0}
+    - target: {fileID: 7505137080643014027, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e797805b58c44e54097d0731ccb9a4d5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
 --- !u!1 &1419867455
@@ -2084,6 +2107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c8d8bfa8dc4a44b9e32275b9b93ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPoint: {fileID: 0}
+  attackRange: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2167,6 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  joystick: {fileID: 83014909}
   animator: {fileID: 1722289478}
 --- !u!95 &1722289478
 Animator:
@@ -2225,7 +2251,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -559639735
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 3594580595713017893, guid: 30ecec5af69a89a499aa6fc1fbde8091, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2508,7 +2534,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 792858401
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ff0e25f45965a1940862e99a8b589a1f, type: 3}
   m_Color: {r: 0.6627451, g: 0.6627451, b: 0.6627451, a: 1}
@@ -2621,7 +2647,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 792858401
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ff0e25f45965a1940862e99a8b589a1f, type: 3}
   m_Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0.99607843}
@@ -2646,10 +2672,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 257033077}
     m_Modifications:
+    - target: {fileID: 270299780938864279, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2871751704120939989, guid: 8c1c5ac85d328b9419de8beb3a52df3b, type: 3}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1722289470}
+    - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2710,5 +2744,9 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -559639735
       objectReference: {fileID: 0}
+    - target: {fileID: 7505137080643014027, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e797805b58c44e54097d0731ccb9a4d5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
