@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5.0f;
     private bool touchStart = false;

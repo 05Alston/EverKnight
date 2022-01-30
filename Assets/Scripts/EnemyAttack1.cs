@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyAttack1 : MonoBehaviour
 {
-    public Transform attackPoint;
     public float attackRange;
     public LayerMask AllyLayer;
     public float attackRate = 1f;
@@ -21,7 +20,7 @@ public class EnemyAttack1 : MonoBehaviour
         // Put attack animation
 
         // Detect enemy in range
-        Collider2D[] hitAllies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, AllyLayer);
+        Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position, attackRange, AllyLayer);
 
 
         // Damage enemy
@@ -36,8 +35,7 @@ public class EnemyAttack1 : MonoBehaviour
     //Draw wireFrame(*Only visible in the editor)
     private void OnDrawGizmosSelected()
     {
-        if (attackPoint == null)
-            return;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Transform attackPoint;
     public float attackRange;
     public LayerMask enemyLayer;
     public int attackDamage;
@@ -30,21 +29,20 @@ public class PlayerAttack : MonoBehaviour
         // Put attack animation
 
         // Detect enemy in range
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
 
         // Damage enemy
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Enemies found");
-            enemy.GetComponent<enemyHealth>().TakeDamage(attackDamage);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        if (attackPoint == null)
-            return;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
 
