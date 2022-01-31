@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    private Animator animator;
     public float attackRange;
     public LayerMask enemyLayer;
     public int attackDamage;
@@ -10,7 +11,10 @@ public class PlayerAttack : MonoBehaviour
 
 
     // TODO: Attack when clicked on right half of screen
-
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     void Update()
     {
         // Added delay between attacks
@@ -27,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         // Put attack animation
-
+        animator.SetTrigger("Attack");
         // Detect enemy in range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowPath : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 3f;
     private GameObject target;
     private float targetX;
     private float posX;
@@ -16,7 +16,7 @@ public class ArrowPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Enemy");
+       target = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     // Update is called once per frame
@@ -29,15 +29,16 @@ public class ArrowPath : MonoBehaviour
         baseY = Mathf.Lerp(transform.position.y, target.transform.position.y, (nextX - posX) / dist);
         height = 2 * (nextX - posX) * (nextX - targetX) / (-multiplier * dist * dist);
 
-        Vector3 movePosition = new Vector3(nextX, baseY + height,transform.position.z);
+        Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition;
-        if (transform.position == target.transform.position)
+        if (target.transform.position == transform.position)
         {
-            DestroyImmediate(gameObject,true);
-            target.GetComponent<EnemyHealth>().TakeDamage(2);
+            DestroyImmediate(gameObject, true);
+            target.GetComponent<EnemyHealth>().TakeDamage(1);
         }
     }
+ 
     public static Quaternion LookAtTarget(Vector2 rotation)
     {
         return Quaternion.Euler(0, 0, Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg -90);

@@ -26,7 +26,6 @@ public class EnemyAttack1 : MonoBehaviour
         // Damage enemy
         foreach (BoxCollider2D ally in hitAllies)
         {
-            Debug.Log("Ally Found");
             ally.GetComponent<PlayerHealth>().TakeDamage();
             nextAttackTime = Time.time + 1f / attackRate;
         }

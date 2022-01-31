@@ -7,8 +7,12 @@ public class PlayerAnimation : MonoBehaviour
     public float speed;
     public Joystick joystick;
     Vector2 movement;
-    public Animator animator;
+    private Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     // Update is called once per frame
     void Update()
     {
