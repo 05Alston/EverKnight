@@ -40,15 +40,21 @@ public class PlayerHealth : MonoBehaviour
         }
         // Play hurt animation
         animator.SetTrigger("isHurt");
+        
         // Move player back on hit
-        gameObject.transform.position -= new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x - 0.8f, gameObject.transform.position.y, gameObject.transform.position.z);
     }
 
     private void Die()
     {
         // TODO: Play die animation
         animator.SetBool("isDead", true);
+        // Disable/Destroy player
+        gameObject.layer = 3;
+        gameObject.GetComponent<PlayerMovement>().enabled = false;
+        gameObject.GetComponent<PlayerAttack>().enabled = false;
+        gameObject.GetComponent<PlayerHealth>().enabled = false;
         Debug.Log("You Died");
-        // TODO: Disable/Destroy enemy
+        // TODO: End Screen
     }
 }

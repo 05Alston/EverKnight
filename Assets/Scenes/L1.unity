@@ -268,6 +268,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31349872}
   m_CullTransparentMesh: 1
+--- !u!95 &51785852 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7505137080643014027, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+  m_PrefabInstance: {fileID: 2125896580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &110130089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,7 +2249,7 @@ PrefabInstance:
       objectReference: {fileID: 1722289470}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: moveSpeed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
@@ -2295,8 +2300,20 @@ PrefabInstance:
       value: Enemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490798, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: knockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719040118564490798, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195993461400383084, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195993461400383084, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
@@ -2610,7 +2627,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.7, y: -0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2621,7 +2638,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.2}
+  m_Size: {x: 0.9, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1722289477
 MonoBehaviour:
@@ -2635,7 +2652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f119063142513e349b14587b2ef59ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
   joystick: {fileID: 575455497}
 --- !u!95 &1722289478
 Animator:
@@ -2696,7 +2712,7 @@ SpriteRenderer:
   m_SortingLayerID: -559639735
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3594580595713017893, guid: 30ecec5af69a89a499aa6fc1fbde8091, type: 3}
+  m_Sprite: {fileID: 524363935578830092, guid: 30ecec5af69a89a499aa6fc1fbde8091, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3203,11 +3219,11 @@ PrefabInstance:
       objectReference: {fileID: 1722289470}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: moveSpeed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
@@ -3257,6 +3273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6719040118564490798, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 51785852}
     - target: {fileID: 6719040118564490799, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: attackRange
       value: 0.5
@@ -3279,7 +3299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7195993461400383084, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_Size.y
-      value: 1.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7195993461400383084, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_IsTrigger

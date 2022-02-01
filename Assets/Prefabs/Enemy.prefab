@@ -67,6 +67,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   maxHealth: 5
   currentHealth: 0
+  knockback: 0.8
   healthBar: {fileID: 6719040118614232345}
 --- !u!114 &6719040118564490799
 MonoBehaviour:

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    public float speed;
     public Joystick joystick;
     Vector2 movement;
     private Animator animator;
