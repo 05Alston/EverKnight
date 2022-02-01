@@ -5,7 +5,8 @@ using UnityEngine;
 public class ArrowPath : MonoBehaviour
 {
     public float speed = 3f;
-    private GameObject target;
+    public GameObject[] targets;
+    private GameObject ally;
     private float targetX;
     private float posX;
     private float dist;
@@ -15,27 +16,36 @@ public class ArrowPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       //target = GameObject.FindGameObjectWithTag("Enemy");
+        ally = GameObject.FindGameObjectWithTag("Ally");
+        //targets = ally.GetComponent<AllyAttack>().FindEnemies;
     }
 
     // Update is called once per frame
     void Update()
     {
-        targetX = target.transform.position.x;
-        posX = transform.position.x;
-        dist = targetX - posX;
-        nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
-        baseY = Mathf.Lerp(transform.position.y, target.transform.position.y, (posX - nextX) / dist);
-        height = 2 * (nextX - posX) * (nextX - targetX) / (-0.25f * dist * dist);
 
-        Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
-        transform.rotation = LookAtTarget(movePosition - transform.position);
-        transform.position = movePosition;
-        if (target.transform.position == transform.position)
+        foreach (GameObject target in targets)
         {
-           // DestroyImmediate(gameObject, true);
-            target.GetComponent<EnemyHealth>().TakeDamage(1);
+            while (target.GetComponent<EnemyHealth>().currentHealth != 0)
+            {
+                targetX = target.transform.position.x;
+                posX = transform.position.x;
+                dist = targetX - posX;
+                nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
+                baseY = Mathf.Lerp(transform.position.y, target.transform.position.y, (posX - nextX) / dist);
+                height = 2 * (nextX - posX) * (nextX - targetX) / (-0.25f * dist * dist);
+
+                Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+                transform.rotation = LookAtTarget(movePosition - transform.position);
+                transform.position = movePosition;
+                if (target.transform.position == transform.position)
+                {
+                    DestroyImmediate(gameObject, true);
+                    target.GetComponent<EnemyHealth>().TakeDamage(1);
+                }
+            }
         }
+        
     }
  
     public static Quaternion LookAtTarget(Vector2 rotation)

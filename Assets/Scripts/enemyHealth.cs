@@ -57,6 +57,7 @@ public class EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         // TODO: Fix This by destroying gameObject
+        Destroy(this);
         gameObject.transform.position = new Vector3(gameObject.transform.position.x + 30, gameObject.transform.position.y, gameObject.transform.position.z);
     }
 }

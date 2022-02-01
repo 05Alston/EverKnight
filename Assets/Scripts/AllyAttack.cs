@@ -13,10 +13,9 @@ public class AllyAttack : MonoBehaviour
     public float attackRate = 4f;
     private float nextAttackTime = 0f;
 
-    void Start()
-    {
-        arrowPrefab = GameObject.FindGameObjectWithTag("Arrow");
-    }
+    public GameObject[] enemies;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -51,4 +50,10 @@ public class AllyAttack : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
+
+    public GameObject[] FindEnemies()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        return enemies;
+    }
 }
