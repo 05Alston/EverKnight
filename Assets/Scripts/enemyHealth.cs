@@ -41,12 +41,22 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        // Disable/Destroy enemy
+        // Disable enemy
         gameObject.layer = 3;
         gameObject.GetComponent<EnemyFollow>().enabled = false;
         gameObject.GetComponent<EnemyAttack1>().enabled = false;
         // Play die animation
         animator.SetBool("isDead", true);
         Debug.Log("Enemy Dead");
+
+        KillEnemy();
+    }
+
+    IEnumerator KillEnemy()
+    {
+        yield return new WaitForSeconds(3);
+
+        // TODO: Fix This by destroying gameObject
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x + 30, gameObject.transform.position.y, gameObject.transform.position.z);
     }
 }
