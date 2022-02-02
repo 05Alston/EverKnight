@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
 
-    public Animator animator;
+    private Animator animator;
     public float maxHealth = 10;
     public float currentHealth;
     [SerializeField] public HealthBar healthBar;// Healthbar will have value between 0 and 1
@@ -21,13 +21,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        gameObject.GetComponent<EnemyFollow>().delay = 0;
+        currentHealth -= damage;
         if (currentHealth <=0)
         {
             Die();
-        }
-        else
-        {
-            currentHealth -= damage;
         }
         healthBar.SetHealth(currentHealth / maxHealth);
 
@@ -48,16 +46,7 @@ public class EnemyHealth : MonoBehaviour
         // Play die animation
         animator.SetBool("isDead", true);
         Debug.Log("Enemy Dead");
-
-        KillEnemy();
     }
 
-    IEnumerator KillEnemy()
-    {
-        yield return new WaitForSeconds(3);
 
-        // TODO: Fix This by destroying gameObject
-        Destroy(this);
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x + 30, gameObject.transform.position.y, gameObject.transform.position.z);
-    }
 }

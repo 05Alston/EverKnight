@@ -7,13 +7,10 @@ public class AllyAttack : MonoBehaviour
     public Animator animator;
     public float attackRange=15;
     public int attackDamage;
-    public GameObject target;
     public GameObject arrowPrefab;
     public LayerMask enemyLayer;
-    public float attackRate = 4f;
+    public float allyAttackRate = 4f;
     private float nextAttackTime = 0f;
-
-    public GameObject[] enemies;
 
 
     // Update is called once per frame
@@ -24,7 +21,7 @@ public class AllyAttack : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W))
             {
                 Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
+                nextAttackTime = Time.time + 1f / allyAttackRate;
             }
         }
         
@@ -50,10 +47,4 @@ public class AllyAttack : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
-
-    public GameObject[] FindEnemies()
-    {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        return enemies;
-    }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float moveSpeed = 5.0f;
     private bool touchStart = false;
     private Vector2 pointA;
     private Vector2 pointB;
@@ -40,6 +40,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void MoveCharacter(Vector2 direction)
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(direction * moveSpeed * Time.deltaTime);
     }
 }

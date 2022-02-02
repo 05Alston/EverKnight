@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         animator = GetComponent<Animator>();
     }
     private void Update()
-    {
+    {// Each heart is 2 lives
         health = (health <= numOfHearts*2) ? health : numOfHearts*2;
 
         for (int i = 0; i < hearts.Length; i++)
@@ -30,13 +30,10 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage()
     {
         Debug.Log("Took Damage");
+        health--;
         if (health <= 0)
         {
             Die();
-        }
-        else
-        {
-            health --;
         }
         // Play hurt animation
         animator.SetTrigger("isHurt");
@@ -53,6 +50,7 @@ public class PlayerHealth : MonoBehaviour
         gameObject.layer = 3;
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         gameObject.GetComponent<PlayerAttack>().enabled = false;
+        gameObject.GetComponent<PlayerHealth>().hearts[0].sprite = emptyHeart;
         gameObject.GetComponent<PlayerHealth>().enabled = false;
         Debug.Log("You Died");
         // TODO: End Screen

@@ -6,7 +6,6 @@ public class ArrowPath : MonoBehaviour
 {
     public float speed = 3f;
     public GameObject[] targets;
-    private GameObject ally;
     private float targetX;
     private float posX;
     private float dist;
@@ -16,14 +15,12 @@ public class ArrowPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ally = GameObject.FindGameObjectWithTag("Ally");
-        //targets = ally.GetComponent<AllyAttack>().FindEnemies;
+        targets = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
     void Update()
     {
-
         foreach (GameObject target in targets)
         {
             while (target.GetComponent<EnemyHealth>().currentHealth != 0)
@@ -32,24 +29,26 @@ public class ArrowPath : MonoBehaviour
                 posX = transform.position.x;
                 dist = targetX - posX;
                 nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
-                baseY = Mathf.Lerp(transform.position.y, target.transform.position.y, (posX - nextX) / dist);
-                height = 2 * (nextX - posX) * (nextX - targetX) / (-0.25f * dist * dist);
+                baseY = Mathf.Lerp(transform.position.y, target.transform.position.y, (nextX - posX) / dist);
+                height = 2 * (nextX - posX) * (nextX - targetX) / (-1f * dist * dist);
 
                 Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
                 transform.rotation = LookAtTarget(movePosition - transform.position);
                 transform.position = movePosition;
                 if (target.transform.position == transform.position)
                 {
-                    DestroyImmediate(gameObject, true);
                     target.GetComponent<EnemyHealth>().TakeDamage(1);
+                    DestroyImmediate(gameObject, true);
                 }
+
             }
         }
-        
+
+
     }
- 
+
     public static Quaternion LookAtTarget(Vector2 rotation)
     {
-        return Quaternion.Euler(0, 0, Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg -90);
+        return Quaternion.Euler(0, 0, Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg - 90);
     }
 }
