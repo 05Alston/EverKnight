@@ -8,6 +8,7 @@ TagManager:
   - Arrow
   - Joystick
   - Ally
+  - AudioManager
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,7 @@ TagManager:
     locked: 0
   - name: Top
     uniqueID: 3735327561
+    locked: 0
+  - name: UI
+    uniqueID: 977486127
     locked: 0

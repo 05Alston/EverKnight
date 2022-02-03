@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void MoveCharacter(Vector2 direction)
     {
+        FindObjectOfType<AudioManager>().Play("Run");
         transform.Translate(direction * moveSpeed * Time.deltaTime);
     }
 }
