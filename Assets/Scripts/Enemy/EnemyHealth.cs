@@ -26,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <=0)
         {
             Die();
+            enemyCount.instance.ChangeCount();
         }
         healthBar.SetHealth(currentHealth / maxHealth);
 
