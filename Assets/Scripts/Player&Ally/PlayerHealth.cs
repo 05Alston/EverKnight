@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void TakeDamage()
     {
-        Debug.Log("Took Damage");
+        FindObjectOfType<AudioManager>().Play("Hurt");
         health--;
         if (health <= 0)
         {

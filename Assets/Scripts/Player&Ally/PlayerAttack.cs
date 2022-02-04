@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     public int attackDamage;
     public float attackRate =2f;
     private float nextAttackTime = 0f;
+    private bool isAttackTime = true;
 
 
     // TODO: Attack when clicked on right half of screen
@@ -20,27 +21,30 @@ public class PlayerAttack : MonoBehaviour
         // Added delay between attacks
         if (Time.time >= nextAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Attack();
-                nextAttackTime = Time.time+ 1f/attackRate;
-            }
-        }
-        
-    }
-    private void Attack()
-    {
-        // Put attack animation
-        animator.SetTrigger("Attack");
-        FindObjectOfType<AudioManager>().Play("Attack");
-        // Detect enemy in range
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+            isAttackTime = true;
 
-        // Damage enemy
-        foreach (Collider2D enemy in hitEnemies)
+        }
+
+
+    }
+    public void Attack()
+    {
+        if (isAttackTime)
         {
-            Debug.Log("Enemies found");
-            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+            // Put attack animation
+            animator.SetTrigger("Attack");
+            FindObjectOfType<AudioManager>().Play("Attack");
+            // Detect enemy in range
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+
+            // Damage enemy
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                Debug.Log("Enemies found");
+                enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+            }
+            isAttackTime = false;
+            nextAttackTime = Time.time + 1f / attackRate;
         }
     }
 

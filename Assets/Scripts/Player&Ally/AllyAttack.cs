@@ -10,7 +10,7 @@ public class AllyAttack : MonoBehaviour
     public GameObject arrowPrefab;
     public LayerMask enemyLayer;
     public float allyAttackRate = 4f;
-    private float nextAttackTime = 0f;
+    private float nextAttackTime = 5f;
 
 
     // Update is called once per frame
@@ -18,11 +18,7 @@ public class AllyAttack : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                Attack();
-                nextAttackTime = Time.time + 1f / allyAttackRate;
-            }
+            Attack();
         }
         
 
@@ -35,6 +31,7 @@ public class AllyAttack : MonoBehaviour
 
         // Create Prefab
         Invoke("InstantiateMethod", 0.75f);
+        nextAttackTime = Time.time + 1f / allyAttackRate;
     }
 
     private void InstantiateMethod()

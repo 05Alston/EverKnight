@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-    private bool touchStart = false;
+    public bool touchStart = false;
     private Vector2 pointA;
     private Vector2 pointB;
 
@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void MoveCharacter(Vector2 direction)
     {
-        FindObjectOfType<AudioManager>().Play("Run");
         transform.Translate(direction * moveSpeed * Time.deltaTime);
     }
 }

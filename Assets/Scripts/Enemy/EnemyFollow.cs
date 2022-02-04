@@ -22,9 +22,11 @@ public class EnemyFollow : MonoBehaviour
     {
         //Delay timer
         Invoke("moveCharacter", delay);
+
     }
     void moveCharacter()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        delay = 0;
     }
 }
