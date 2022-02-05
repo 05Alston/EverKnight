@@ -25,6 +25,10 @@ public class ArrowPath : MonoBehaviour
         {
             while (target.GetComponent<EnemyHealth>().currentHealth != 0)
             {
+                if (EnemyCount.instance.count == 0)
+                {
+                    return;
+                }
                 targetX = target.transform.position.x;
                 posX = transform.position.x;
                 dist = targetX - posX;

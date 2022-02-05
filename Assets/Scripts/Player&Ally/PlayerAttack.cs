@@ -6,7 +6,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
     public LayerMask enemyLayer;
     public int attackDamage;
-    public float attackRate =2f;
+    public float attackRate = 2f;
     private float nextAttackTime = 0f;
     private bool isAttackTime = true;
 
@@ -29,23 +29,29 @@ public class PlayerAttack : MonoBehaviour
     }
     public void Attack()
     {
-        if (isAttackTime)
+        if (animator.GetBool("isDead"))
         {
-            // Put attack animation
-            animator.SetTrigger("Attack");
-            FindObjectOfType<AudioManager>().Play("Attack");
-            // Detect enemy in range
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
-
-            // Damage enemy
-            foreach (Collider2D enemy in hitEnemies)
-            {
-                Debug.Log("Enemies found");
-                enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
-            }
-            isAttackTime = false;
-            nextAttackTime = Time.time + 1f / attackRate;
+            return;
         }
+        if (!isAttackTime)
+        {
+            return;
+        }
+        // Put attack animation
+        animator.SetTrigger("Attack");
+        FindObjectOfType<AudioManager>().Play("Attack");
+        // Detect enemy in range
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+
+        // Damage enemy
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("Enemies found");
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+        }
+        isAttackTime = false;
+        nextAttackTime = Time.time + 1f / attackRate;
+
     }
 
     private void OnDrawGizmosSelected()

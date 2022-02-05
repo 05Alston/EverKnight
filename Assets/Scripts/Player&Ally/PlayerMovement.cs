@@ -29,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (gameObject.GetComponent<Animator>().GetBool("isDead"))
+        {
+            return;
+        }
         if (touchStart)
         {
             Vector2 offset = pointB - pointA;

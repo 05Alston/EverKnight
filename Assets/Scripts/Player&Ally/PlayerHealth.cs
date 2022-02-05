@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,12 +44,11 @@ public class PlayerHealth : MonoBehaviour
     {
         // TODO: Play die animation
         animator.SetBool("isDead", true);
+        GetComponent<Rigidbody2D>().isKinematic = true;
         // Disable/Destroy player
         gameObject.layer = 3;
-        gameObject.GetComponent<PlayerMovement>().enabled = false;
-        gameObject.GetComponent<PlayerAttack>().enabled = false;
-        gameObject.GetComponent<PlayerHealth>().hearts[0].sprite = emptyHeart;
-        gameObject.GetComponent<PlayerHealth>().enabled = false;
+        hearts[0].sprite = emptyHeart;
+        enabled = false;
         Debug.Log("You Died");
         // TODO: End Screen
     }

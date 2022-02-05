@@ -13,9 +13,16 @@ public class AllyAttack : MonoBehaviour
     private float nextAttackTime = 5f;
 
 
+
     // Update is called once per frame
     void Update()
     {
+        if (EnemyCount.instance.count == 0)
+        {
+            animator.SetBool("isEnemiesDead", true);
+            transform.position = new Vector3(transform.position.x+0.03f, transform.position.y, transform.position.z);
+            return;
+        }
         if (Time.time >= nextAttackTime)
         {
             Attack();
@@ -37,6 +44,11 @@ public class AllyAttack : MonoBehaviour
     private void InstantiateMethod()
     {
         Instantiate(arrowPrefab, transform.position, arrowPrefab.transform.rotation);
+    }
+
+    void Run()
+    {
+
     }
 
     private void OnDrawGizmosSelected()
