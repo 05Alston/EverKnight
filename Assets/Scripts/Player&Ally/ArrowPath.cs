@@ -16,7 +16,6 @@ public class ArrowPath : MonoBehaviour
     void Start()
     {
         targets = GameObject.FindGameObjectsWithTag("Enemy");
-        enemyCount.instance.SetCount(targets.Length);
     }
 
     // Update is called once per frame

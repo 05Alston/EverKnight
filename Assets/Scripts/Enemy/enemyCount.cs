@@ -17,15 +17,8 @@ public class enemyCount : MonoBehaviour
         {
             instance = this;
         }
-    }
-    public void SetCount(int c)
-    {
-        if (!countReceived)
-        {
-            count = c;
-            text.text = "Enemies remaining : " + count.ToString();
-            countReceived = true;
-        }
+        count = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        text.text = "Enemies remaining : "+count.ToString();
     }
    public void ChangeCount()
     {
