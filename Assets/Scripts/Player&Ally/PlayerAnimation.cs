@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     public Joystick joystick;
     Vector2 movement;
     private Animator animator;
+    public GameObject dialogueManager;
 
     private void Start()
     {
@@ -16,6 +17,10 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         if (EnemyCount.instance.count == 0)
+        {
+           // dialogueManager.GetComponent<TriggerDialogue>().DialogueTrigger();
+        }
+        if (dialogueManager.GetComponent<DialogueManager>().endDialogue)
         {
             animator.SetFloat("Horizontal", 1);
             animator.SetFloat("Vertical", 0);

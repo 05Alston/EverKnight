@@ -11,14 +11,16 @@ public class AllyAttack : MonoBehaviour
     public LayerMask enemyLayer;
     public float allyAttackRate = 4f;
     private float nextAttackTime = 5f;
+    public GameObject dialogueManager;
 
 
 
     // Update is called once per frame
     void Update()
     {
-        if (EnemyCount.instance.count == 0)
+        if (dialogueManager.GetComponent<DialogueManager>().endDialogue)
         {
+            Wait();
             animator.SetBool("isEnemiesDead", true);
             transform.position = new Vector3(transform.position.x+0.03f, transform.position.y, transform.position.z);
             return;
@@ -46,9 +48,9 @@ public class AllyAttack : MonoBehaviour
         Instantiate(arrowPrefab, transform.position, arrowPrefab.transform.rotation);
     }
 
-    void Run()
+    IEnumerator Wait()
     {
-
+        yield return new WaitForSeconds(1f);
     }
 
     private void OnDrawGizmosSelected()

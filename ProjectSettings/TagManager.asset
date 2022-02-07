@@ -9,6 +9,7 @@ TagManager:
   - Joystick
   - Ally
   - AudioManager
+  - DialogueManager
   layers:
   - Default
   - TransparentFX
