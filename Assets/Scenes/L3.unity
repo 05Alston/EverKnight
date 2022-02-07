@@ -5563,7 +5563,7 @@ GameObject:
   - component: {fileID: 1574350615}
   - component: {fileID: 1574350616}
   m_Layer: 0
-  m_Name: enemyCount
+  m_Name: EnemyCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
