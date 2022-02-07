@@ -7,19 +7,18 @@ public class PlayerAnimation : MonoBehaviour
     public Joystick joystick;
     Vector2 movement;
     private Animator animator;
-    public GameObject dialogueManager;
+    private GameObject dialogueManager;
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        dialogueManager = GameObject.FindGameObjectWithTag("DialogueManager");
     }
     // Update is called once per frame
     void Update()
     {
-        if (EnemyCount.instance.count == 0)
-        {
-           // dialogueManager.GetComponent<TriggerDialogue>().DialogueTrigger();
-        }
+
         if (dialogueManager.GetComponent<DialogueManager>().endDialogue)
         {
             animator.SetFloat("Horizontal", 1);

@@ -6,11 +6,16 @@ public class LevelLoader : MonoBehaviour
 {
     
     public Animator transition;
-    public float delay =1f;
+    public GameObject dialogueManager;
     // Update is called once per frame
     void Update()
     {
-        if (EnemyCount.instance.count == 0){
+        if (EnemyCount.instance.count == 0&&!dialogueManager.GetComponent<DialogueManager>().startDialogue)
+        {
+            dialogueManager.GetComponent<TriggerDialogue>().DialogueTrigger();  
+        }
+        if (dialogueManager.GetComponent<DialogueManager>().endDialogue)
+        {
             LoadNextLevel();
         }
     }
@@ -20,6 +25,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     IEnumerator LoadLevel(int levelIndex){
+        yield return new WaitForSeconds(3f);
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1f);

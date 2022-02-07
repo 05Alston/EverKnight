@@ -6,13 +6,19 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-	public Text dialogueText;
+	public TextMeshProUGUI dialogueText;
 	public Animator animator;
 	private Queue<string> sentences;
-	public bool endDialogue;
+	public bool startDialogue = false;
+	public bool endDialogue=false;
 
+	void Start()
+	{
+		sentences = new Queue<string>();
+	}
 	public void StartDialogue(Dialogue dialogue)
 	{
+		startDialogue = true;
 		animator.SetBool("IsOpen", true);
 
 	
@@ -37,10 +43,10 @@ public class DialogueManager : MonoBehaviour
 
 		string sentence = sentences.Dequeue();
 		StopAllCoroutines();
-		StartCoroutine(TypeSentence(sentence));
+		StartCoroutine(Typing(sentence));
 	}
 
-	IEnumerator TypeSentence(string sentence)
+	IEnumerator Typing(string sentence)
 	{
 		dialogueText.text = "";
 		foreach (char letter in sentence.ToCharArray())
