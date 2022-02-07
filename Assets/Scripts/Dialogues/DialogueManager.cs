@@ -20,8 +20,15 @@ public class DialogueManager : MonoBehaviour
 	{
 		startDialogue = true;
 		animator.SetBool("IsOpen", true);
+        if (dialogue.name== "Knight")
+        {
+			Debug.Log("Knight speaks");
+        }
+		if (dialogue.name == "Archer")
+		{
+			Debug.Log("Archer speaks");
+		}
 
-	
 
 		sentences.Clear();
 

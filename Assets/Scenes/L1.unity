@@ -5617,10 +5617,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bca58045611ce642b00200eb1212421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: Knight
+  dialogues:
+  - name: Knight
     sentences:
-    - "hmm\u2026"
+    - "hmm\u2026\r\n"
     - 'There seems to be an increase in monsters in the area.
 
 
