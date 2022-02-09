@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public Transform player;
-    private Vector2 movement;
+    private Transform player;
     public float moveSpeed=2;
     public float delay;
 
-
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {
         //Displacement towards player
         Vector3 direction = player.position - transform.position;
         direction.Normalize();
-        movement = direction;
     }
     private void FixedUpdate()
     {

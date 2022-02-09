@@ -19,7 +19,7 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
 
-        if (dialogueManager.GetComponent<DialogueManager>().endDialogue)
+        if (dialogueManager.GetComponent<TriggerDialogue>().levelEnded)
         {
             animator.SetFloat("Horizontal", 1);
             animator.SetFloat("Vertical", 0);

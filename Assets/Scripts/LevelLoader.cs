@@ -10,11 +10,12 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (EnemyCount.instance.count == 0&&!dialogueManager.GetComponent<DialogueManager>().startDialogue)
+        if ((!dialogueManager.GetComponent<TriggerDialogue>().levelStarted || EnemyCount.instance.count == 0) && !dialogueManager.GetComponent<DialogueManager>().startDialogue)
         {
-            dialogueManager.GetComponent<TriggerDialogue>().DialogueTrigger();  
+            dialogueManager.GetComponent<TriggerDialogue>().DialogueTrigger();
+            Debug.Log("Calling you a moron");
         }
-        if (dialogueManager.GetComponent<DialogueManager>().endDialogue)
+        if (dialogueManager.GetComponent<TriggerDialogue>().levelEnded)
         {
             LoadNextLevel();
         }

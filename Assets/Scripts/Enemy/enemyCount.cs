@@ -8,6 +8,7 @@ public class EnemyCount : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public bool countReceived=false;
+
     public static EnemyCount instance;
     int maxCount;
     [HideInInspector]
@@ -21,11 +22,11 @@ public class EnemyCount : MonoBehaviour
         }
         maxCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         count = maxCount;
-        text.text = "Enemies remaining : " + count.ToString() + "/" + maxCount.ToString();
+        text.text = "Enemies: " + count.ToString() + "/" + maxCount.ToString();
     }
    public void ChangeCount()
     {
         count--;
-        text.text = "Enemies remaining : "+count.ToString() + "/" + maxCount.ToString();
+        text.text = "Enemies: "+count.ToString() + "/" + maxCount.ToString();
     }
 }

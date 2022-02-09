@@ -18,7 +18,7 @@ public class AllyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dialogueManager.GetComponent<DialogueManager>().endDialogue)
+        if (dialogueManager.GetComponent<TriggerDialogue>().levelEnded)
         {
             Wait();
             animator.SetBool("isEnemiesDead", true);

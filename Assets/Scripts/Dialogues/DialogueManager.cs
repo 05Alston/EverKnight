@@ -6,67 +6,70 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-	public TextMeshProUGUI dialogueText;
-	public Animator animator;
-	private Queue<string> sentences;
-	public bool startDialogue = false;
-	public bool endDialogue=false;
+    public TextMeshProUGUI dialogueText;
+    public Animator animator;
+    public Image image;
+    public bool startDialogue = false;
+    Dialogue[] currentDialogues;
+    Actor[] currentActors;
+    int activeMessage = 0;
 
-	void Start()
-	{
-		sentences = new Queue<string>();
-	}
-	public void StartDialogue(Dialogue dialogue)
-	{
-		startDialogue = true;
-		animator.SetBool("IsOpen", true);
-        if (dialogue.name== "Knight")
+
+
+    public void StartDialogue(Dialogue[] dialogues, Actor[] actors)
+    {
+        if (dialogues==null)
         {
-			Debug.Log("Knight speaks");
+            return;
         }
-		if (dialogue.name == "Archer")
-		{
-			Debug.Log("Archer speaks");
-		}
+        currentDialogues = dialogues;
+        currentActors = actors;
+        activeMessage = 0;
 
+        DisplayDialogue();
+    }
 
-		sentences.Clear();
+    public void DisplayDialogue()
+    {
+        startDialogue = true;
+        animator.SetBool("IsOpen", true);
+        Dialogue dialogueToDisplay = currentDialogues[activeMessage];
+        Actor actorToDisplay = currentActors[dialogueToDisplay.actorId];
+        image.sprite = actorToDisplay.sprite;
+        StartCoroutine(Typing(dialogueToDisplay.sentence));
+    }
 
-		foreach (string sentence in dialogue.sentences)
-		{
-			sentences.Enqueue(sentence);
-		}
+    public void DisplayNextSentence()
+    {
+        StopAllCoroutines();
+        activeMessage++;
+        if (activeMessage < currentDialogues.Length)
+        {
+            DisplayDialogue();
+            return;
+        }
+        else
+        {
+            EndDialogue();
+            return;
+        }
+    }
 
-		DisplayNextSentence();
-	}
+    IEnumerator Typing(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
+    }
 
-	public void DisplayNextSentence()
-	{
-		if (sentences.Count == 0)
-		{
-			EndDialogue();
-			return;
-		}
-
-		string sentence = sentences.Dequeue();
-		StopAllCoroutines();
-		StartCoroutine(Typing(sentence));
-	}
-
-	IEnumerator Typing(string sentence)
-	{
-		dialogueText.text = "";
-		foreach (char letter in sentence.ToCharArray())
-		{
-			dialogueText.text += letter;
-			yield return null;
-		}
-	}
-
-	void EndDialogue()
-	{
-		animator.SetBool("IsOpen", false);
-		endDialogue = true;
-	}
+    void EndDialogue()
+    {
+        startDialogue = false;
+        GetComponent<TriggerDialogue>().Inputs(true);
+        animator.SetBool("IsOpen", false);
+    }
 
 }
