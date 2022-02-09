@@ -18,14 +18,15 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue[] dialogues, Actor[] actors)
     {
-        if (dialogues==null)
-        {
-            return;
-        }
         currentDialogues = dialogues;
         currentActors = actors;
         activeMessage = 0;
-
+        if (currentDialogues.Length == 0)
+        {
+            Debug.Log("Sup MOFO!");
+            EndDialogue();
+            return;
+        }
         DisplayDialogue();
     }
 
@@ -67,6 +68,10 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        if (EnemyCount.instance.count == 0)
+        {
+            GetComponent<TriggerDialogue>().levelEnded = true;
+        }
         startDialogue = false;
         GetComponent<TriggerDialogue>().Inputs(true);
         animator.SetBool("IsOpen", false);

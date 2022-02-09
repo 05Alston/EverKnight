@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
-    private void Die()
+    void Die()
     {
         // Disable enemy
         gameObject.layer = 3;
@@ -46,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
         gameObject.GetComponent<EnemyAttack1>().enabled = false;
         // Play die animation
         animator.SetBool("isDead", true);
-        Debug.Log("Enemy Dead");
+        gameObject.SetActive(false);
     }
 
 

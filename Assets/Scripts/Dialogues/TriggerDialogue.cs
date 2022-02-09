@@ -30,7 +30,6 @@ public class TriggerDialogue : MonoBehaviour
             }
             Inputs(false);
             GetComponent<DialogueManager>().StartDialogue(LevelEndDialogues, actors);
-            levelEnded = true;
             return;
         }
         GetComponent<DialogueManager>().StartDialogue(LevelStartDialogues, actors);
@@ -45,6 +44,8 @@ public class TriggerDialogue : MonoBehaviour
         player.GetComponent<PlayerAnimation>().enabled = enable;
         player.GetComponent<PlayerMovement>().enabled = enable;
         player.GetComponent<PlayerAttack>().enabled = enable;
+        if (ally == null)
+            return;
         ally.GetComponent<AllyAttack>().enabled = enable;
     }
 }
