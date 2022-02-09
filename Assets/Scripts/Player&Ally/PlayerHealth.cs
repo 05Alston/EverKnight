@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     private Animator animator;
     public int health;
+    public int maxHealth;
     public int numOfHearts;
     public Image[] hearts;
     public Sprite fullHeart;
@@ -13,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        maxHealth=health;
         animator = GetComponent<Animator>();
     }
     private void Update()
@@ -51,5 +53,14 @@ public class PlayerHealth : MonoBehaviour
         enabled = false;
         Debug.Log("You Died");
         // TODO: End Screen
+    }
+
+    private void OnTriggerEnter2D(Collider2D heart){
+        if(heart.gameObject.CompareTag("Heart")){
+            Destroy(heart.gameObject);
+            if(health<maxHealth){
+                health++;
+            }
+        }
     }
 }

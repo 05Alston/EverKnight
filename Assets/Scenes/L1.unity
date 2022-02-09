@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 16360204}
   - component: {fileID: 16360203}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3864,7 +3864,7 @@ GameObject:
   - component: {fileID: 1081957357}
   - component: {fileID: 1081957356}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5619,6 +5619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - name: Knight
+    sprite: {fileID: 0}
     sentences:
     - "hmm\u2026\r\n"
     - 'There seems to be an increase in monsters in the area.
@@ -5626,6 +5627,7 @@ MonoBehaviour:
 
 '
     - "Wonder why?\r"
+    levelStart: 0
 --- !u!1 &1458177726
 GameObject:
   m_ObjectHideFlags: 0
@@ -5638,7 +5640,7 @@ GameObject:
   - component: {fileID: 1458177729}
   - component: {fileID: 1458177728}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6464,6 +6466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 6
+  maxHealth: 0
   numOfHearts: 3
   hearts:
   - {fileID: 619248176}
@@ -7741,3 +7744,60 @@ PrefabInstance:
       objectReference: {fileID: 1448697470}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8a011805eb0f744995f0a862535861e, type: 3}
+--- !u!1001 &8539600283029668442
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0462762
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.39938438
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -128.09627
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363024905283913870, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148124598559860411, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}
+      propertyPath: m_Name
+      value: ExtrasPower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20f914eb8e4b3be4383e29444964a710, type: 3}

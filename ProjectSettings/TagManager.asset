@@ -10,6 +10,8 @@ TagManager:
   - Ally
   - AudioManager
   - DialogueManager
+  - Heart
+  - Destroy
   layers:
   - Default
   - TransparentFX
