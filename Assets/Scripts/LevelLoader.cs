@@ -7,6 +7,7 @@ public class LevelLoader : MonoBehaviour
     
     public Animator transition;
     public GameObject dialogueManager;
+    private float moveTime = 2f;
     // Update is called once per frame
     void Update()
     {
@@ -16,8 +17,11 @@ public class LevelLoader : MonoBehaviour
         }
         if ((!dialogueManager.GetComponent<TriggerDialogue>().levelStarted || EnemyCount.instance.count == 0) && !dialogueManager.GetComponent<DialogueManager>().startDialogue)
         {
+            if (Time.time <= moveTime)
+            {
+                return;
+            }
             dialogueManager.GetComponent<TriggerDialogue>().DialogueTrigger();
-            Debug.Log("Calling you a moron");
         }
         if (dialogueManager.GetComponent<TriggerDialogue>().levelEnded)
         {

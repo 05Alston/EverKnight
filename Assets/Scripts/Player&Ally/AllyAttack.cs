@@ -10,19 +10,26 @@ public class AllyAttack : MonoBehaviour
     public GameObject arrowPrefab;
     public LayerMask enemyLayer;
     public float allyAttackRate = 4f;
-    private float nextAttackTime = 5f;
+    private float nextAttackTime = 15f;
     public GameObject dialogueManager;
+    private float moveTime = 3f;
 
 
 
     // Update is called once per frame
     void Update()
     {
+        if (Time.time <= moveTime)
+        {
+            transform.position = new Vector3(transform.position.x + 0.05f, transform.position.y, transform.position.z);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            return;
+        }
         if (dialogueManager.GetComponent<TriggerDialogue>().levelEnded)
         {
             Wait();
             animator.SetBool("isEnemiesDead", true);
-            transform.position = new Vector3(transform.position.x+0.03f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x+0.05f, transform.position.y, transform.position.z);
             return;
         }
         if (Time.time >= nextAttackTime)

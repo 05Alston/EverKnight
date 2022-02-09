@@ -23,7 +23,6 @@ public class DialogueManager : MonoBehaviour
         activeMessage = 0;
         if (currentDialogues.Length == 0)
         {
-            Debug.Log("Sup MOFO!");
             EndDialogue();
             return;
         }
