@@ -15,7 +15,9 @@ public class PlayerAnimation : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         dialogueManager = GameObject.FindGameObjectWithTag("DialogueManager");
+        moveTime += Time.time;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -24,7 +26,7 @@ public class PlayerAnimation : MonoBehaviour
             animator.SetFloat("Horizontal", 1);
             animator.SetFloat("Vertical", 0);
             animator.SetFloat("Speed", 1);
-            transform.position = new Vector3(transform.position.x + 0.05f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + 0.04f, transform.position.y, transform.position.z);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             return;
         }
@@ -34,7 +36,7 @@ public class PlayerAnimation : MonoBehaviour
             animator.SetFloat("Horizontal", 1);
             animator.SetFloat("Vertical", 0);
             animator.SetFloat("Speed", 1);
-            transform.position = new Vector3(transform.position.x + 0.05f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + 0.04f, transform.position.y, transform.position.z);
             return;
         }
         movement.x = joystick.Horizontal;

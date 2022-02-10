@@ -4,23 +4,32 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
-    
+
     public Animator transition;
     public GameObject dialogueManager;
-    private float moveTime = 2f;
+    private float moveTime = 4f;
+    private void Start()
+    {
+        moveTime += Time.time;
+    }
     // Update is called once per frame
     void Update()
     {
         if (dialogueManager == null)
         {
+
             return;
         }
         if ((!dialogueManager.GetComponent<TriggerDialogue>().levelStarted || EnemyCount.instance.count == 0) && !dialogueManager.GetComponent<DialogueManager>().startDialogue)
         {
             if (Time.time <= moveTime)
             {
+
                 return;
             }
+
+
+
             dialogueManager.GetComponent<TriggerDialogue>().DialogueTrigger();
         }
         if (dialogueManager.GetComponent<TriggerDialogue>().levelEnded)
@@ -29,11 +38,13 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    public void LoadNextLevel(){
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex+1));
+    public void LoadNextLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    IEnumerator LoadLevel(int levelIndex){
+    IEnumerator LoadLevel(int levelIndex)
+    {
         yield return new WaitForSeconds(6f);
         transition.SetTrigger("Start");
 
