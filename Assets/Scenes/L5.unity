@@ -1077,19 +1077,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bca58045611ce642b00200eb1212421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelStartDialogues: []
+  LevelStartDialogues:
+  - actorId: 0
+    sentence: Aight man, I didn't sign up for this. How can a monster be this big?
+  - actorId: 0
+    sentence: "Well let's hope my creators increased my strength all this while I\u2019ve
+      been fighting.\r"
   LevelEndDialogues:
   - actorId: 0
-    sentence: "Phew, that was close.\r"
+    sentence: "How did we manage to beat it?\r"
   - actorId: 1
-    sentence: "I\u2026 I.. need to get out of this place."
+    sentence: "Yeah, it\u2019s a miracle we aren\u2019t dead."
   - actorId: 0
-    sentence: Well that's the plan.
+    sentence: "Anyway, let\u2019s move on ahead.\r"
   - actorId: 1
-    sentence: It.. it will become more dangerous ahead there is a big mons...coughs
-      blood*
-  - actorId: 0
-    sentence: Take it easy kid, don't talk. Let's move ahead.
+    sentence: Yeah.
   actors:
   - name: Knight
     sprite: {fileID: -8256439258909979667, guid: e2e84ed48b540204b93082f2bd9eb3ee, type: 3}
@@ -4888,7 +4890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158764023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 0.3, z: 10}
+  m_LocalPosition: {x: -17.5, y: 0.3, z: 10}
   m_LocalScale: {x: 1, y: 0.85, z: 1}
   m_Children: []
   m_Father: {fileID: 667064121}
@@ -4941,6 +4943,7 @@ MonoBehaviour:
     m_Bits: 64
   allyAttackRate: 0.3
   dialogueManager: {fileID: 397134738}
+  isStuffDone: 0
 --- !u!58 &1158764029
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6593,7 +6596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722289469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 0, z: 10}
+  m_LocalPosition: {x: -13, y: 0, z: 10}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children: []
   m_Father: {fileID: 667064121}
@@ -6774,8 +6777,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -559639735
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 524363935578830092, guid: 30ecec5af69a89a499aa6fc1fbde8091, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7269,8 +7272,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2030967551}
   - component: {fileID: 2030967552}
+  - component: {fileID: 2030967553}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: BossHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7336,7 +7340,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 957143928}
   m_HandleRect: {fileID: 0}
@@ -7348,6 +7352,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2030967553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030967550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924a326a2459df8429aacccb0b70b510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 0}
+  slider: {fileID: 2030967552}
 --- !u!1 &2058042579
 GameObject:
   m_ObjectHideFlags: 0
@@ -7827,7 +7845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 4
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 2030967553}
 --- !u!4 &6719040119872701300
 Transform:
   m_ObjectHideFlags: 0

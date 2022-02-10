@@ -13,14 +13,21 @@ public class DialogueManager : MonoBehaviour
     Dialogue[] currentDialogues;
     Actor[] currentActors;
     int activeMessage = 0;
+    private GameObject ally;
 
-
+    private void Start()
+    {
+        ally = GameObject.FindGameObjectWithTag("Ally");
+    }
 
     public void StartDialogue(Dialogue[] dialogues, Actor[] actors)
     {
+
+            
         currentDialogues = dialogues;
         currentActors = actors;
         activeMessage = 0;
+        
         if (currentDialogues.Length == 0)
         {
             EndDialogue();
@@ -67,6 +74,11 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        if (ally != null)
+        {
+            ally.GetComponent<AllyAttack>().isStuffDone = true;
+        }
+
         if (EnemyCount.instance.count == 0)
         {
             GetComponent<TriggerDialogue>().levelEnded = true;

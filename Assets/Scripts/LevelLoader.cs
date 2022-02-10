@@ -7,7 +7,7 @@ public class LevelLoader : MonoBehaviour
 
     public Animator transition;
     public GameObject dialogueManager;
-    private float moveTime = 4f;
+    private float moveTime = 3f;
     private void Start()
     {
         moveTime += Time.time;
@@ -45,7 +45,7 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(3f);
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1f);

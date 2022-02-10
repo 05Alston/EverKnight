@@ -8,7 +8,7 @@ public class PlayerAnimation : MonoBehaviour
     Vector2 movement;
     private Animator animator;
     private GameObject dialogueManager;
-    private float moveTime = 3f;
+    private float moveTime = 2f;
 
 
     private void Start()

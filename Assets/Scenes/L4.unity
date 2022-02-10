@@ -1007,16 +1007,12 @@ MonoBehaviour:
   LevelStartDialogues: []
   LevelEndDialogues:
   - actorId: 0
-    sentence: "Phew, that was close.\r"
-  - actorId: 1
-    sentence: "I\u2026 I.. need to get out of this place."
+    sentence: "Let\u2019s rest here a bit."
   - actorId: 0
-    sentence: Well that's the plan.
+    sentence: "We haven\u2019t introduced ourselves. I\u2019m *Insert Name, what
+      about you?"
   - actorId: 1
-    sentence: It.. it will become more dangerous ahead there is a big mons...coughs
-      blood*
-  - actorId: 0
-    sentence: Take it easy kid, don't talk. Let's move ahead.
+    sentence: "My name is *Insert name. Blah blah\u2026"
   actors:
   - name: Knight
     sprite: {fileID: -8256439258909979667, guid: e2e84ed48b540204b93082f2bd9eb3ee, type: 3}
@@ -1847,10 +1843,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6719040118564490798, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: maxHealth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490799, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7505137080643014027, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b0e5f031e6b902645afcc3c58e007f06, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
 --- !u!4 &590439761 stripped
@@ -4806,7 +4810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158764023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 0.3, z: 10}
+  m_LocalPosition: {x: -17.5, y: 0.3, z: 10}
   m_LocalScale: {x: 1, y: 0.85, z: 1}
   m_Children: []
   m_Father: {fileID: 667064121}
@@ -4859,6 +4863,7 @@ MonoBehaviour:
     m_Bits: 64
   allyAttackRate: 0.3
   dialogueManager: {fileID: 397134738}
+  isStuffDone: 0
 --- !u!58 &1158764029
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5427,10 +5432,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6719040118564490798, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: maxHealth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490799, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7505137080643014027, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b0e5f031e6b902645afcc3c58e007f06, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
 --- !u!1 &1390642461
@@ -6597,7 +6610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722289469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 0, z: 10}
+  m_LocalPosition: {x: -13, y: 0, z: 10}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children: []
   m_Father: {fileID: 667064121}
@@ -7683,9 +7696,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6719040118564490798, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: maxHealth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490799, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7505137080643014027, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b0e5f031e6b902645afcc3c58e007f06, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
