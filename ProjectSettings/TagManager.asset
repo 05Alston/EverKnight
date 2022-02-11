@@ -12,6 +12,7 @@ TagManager:
   - DialogueManager
   - Heart
   - Destroy
+  - EndGame
   layers:
   - Default
   - TransparentFX

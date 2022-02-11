@@ -52,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         hearts[0].sprite = emptyHeart;
         enabled = false;
         Debug.Log("You Died");
+        GameObject.FindGameObjectWithTag("EndGame").SetActive(true);
         // TODO: End Screen
     }
 
