@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Sprite emptyHeart;
+    public GameObject EndGame;
 
     private void Start()
     {
@@ -52,7 +53,8 @@ public class PlayerHealth : MonoBehaviour
         hearts[0].sprite = emptyHeart;
         enabled = false;
         Debug.Log("You Died");
-        GameObject.FindGameObjectWithTag("EndGame").SetActive(true);
+        EndGame.SetActive(true);
+        Time.timeScale = 0;
         // TODO: End Screen
     }
 
