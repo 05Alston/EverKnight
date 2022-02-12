@@ -59,6 +59,12 @@ TextureImporter:
   - first:
       213: 287418135184050185
     second: PillBtn
+  - first:
+      213: -426933281441643222
+    second: TutorialBtn
+  - first:
+      213: -8251617273168834673
+    second: TutorialBtn_Presssed
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -164,7 +170,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 1184
+        y: 1847
         width: 64
         height: 64
       alignment: 0
@@ -185,7 +191,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 181
-        y: 977
+        y: 1640
         width: 608
         height: 288
       alignment: 0
@@ -206,7 +212,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 832
-        y: 1184
+        y: 1847
         width: 64
         height: 64
       alignment: 0
@@ -227,7 +233,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 1088
+        y: 1751
         width: 64
         height: 64
       alignment: 0
@@ -248,7 +254,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 832
-        y: 1088
+        y: 1751
         width: 64
         height: 64
       alignment: 0
@@ -269,7 +275,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 992
+        y: 1655
         width: 64
         height: 64
       alignment: 0
@@ -290,7 +296,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 832
-        y: 992
+        y: 1655
         width: 64
         height: 64
       alignment: 0
@@ -311,7 +317,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 679
+        y: 1342
         width: 608
         height: 288
       alignment: 0
@@ -332,7 +338,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 832
-        y: 896
+        y: 1559
         width: 64
         height: 64
       alignment: 0
@@ -353,7 +359,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 588
+        y: 1251
         width: 64
         height: 64
       alignment: 0
@@ -374,7 +380,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 183
-        y: 381
+        y: 1045
         width: 608
         height: 288
       alignment: 0
@@ -395,7 +401,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 834
-        y: 588
+        y: 1251
         width: 64
         height: 64
       alignment: 0
@@ -416,7 +422,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 492
+        y: 1155
         width: 64
         height: 64
       alignment: 0
@@ -437,7 +443,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 834
-        y: 492
+        y: 1155
         width: 64
         height: 64
       alignment: 0
@@ -458,7 +464,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 396
+        y: 1059
         width: 64
         height: 64
       alignment: 0
@@ -479,7 +485,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 834
-        y: 396
+        y: 1059
         width: 64
         height: 64
       alignment: 0
@@ -499,8 +505,8 @@ TextureImporter:
       name: CreditsBtn_Pressed
       rect:
         serializedVersion: 2
-        x: 183
-        y: 67
+        x: 181
+        y: 730
         width: 608
         height: 288
       alignment: 0
@@ -521,7 +527,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 849
-        y: 135
+        y: 797
         width: 64
         height: 64
       alignment: 0
@@ -546,7 +552,7 @@ TextureImporter:
         width: 15
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -554,6 +560,48 @@ TextureImporter:
       bones: []
       spriteID: 90886a9654d1df300800000000000000
       internalID: 287418135184050185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialBtn
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 420
+        width: 608
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2501e8417a331af0800000000000000
+      internalID: -426933281441643222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialBtn_Presssed
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 54
+        width: 608
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f4b4a1fcd5c7d80800000000000000
+      internalID: -8251617273168834673
       vertices: []
       indices: 
       edges: []
