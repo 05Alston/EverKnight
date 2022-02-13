@@ -7,7 +7,7 @@ public class LevelLoader : MonoBehaviour
 
     public Animator transition;
     public GameObject dialogueManager;
-    private float moveTime = 3f;
+    private float moveTime = 4f;
     private void Start()
     {
         moveTime += Time.time;
@@ -20,7 +20,9 @@ public class LevelLoader : MonoBehaviour
 
             return;
         }
-        if ((!dialogueManager.GetComponent<TriggerDialogue>().levelStarted || EnemyCount.instance.count == 0) && !dialogueManager.GetComponent<DialogueManager>().startDialogue)
+        if ((!dialogueManager.GetComponent<TriggerDialogue>().levelStarted 
+            || EnemyCount.instance.count == 0) && 
+            !dialogueManager.GetComponent<DialogueManager>().startDialogue)
         {
             if (Time.time <= moveTime)
             {

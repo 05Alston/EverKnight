@@ -8,7 +8,7 @@ public class PlayerAnimation : MonoBehaviour
     Vector2 movement;
     private Animator animator;
     private GameObject dialogueManager;
-    private float moveTime = 2f;
+    private float moveTime = 3f;
 
 
     private void Start()
@@ -26,7 +26,7 @@ public class PlayerAnimation : MonoBehaviour
             animator.SetFloat("Horizontal", 1);
             animator.SetFloat("Vertical", 0);
             animator.SetFloat("Speed", 1);
-            transform.position = new Vector3(transform.position.x + 0.04f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             return;
         }
@@ -36,7 +36,7 @@ public class PlayerAnimation : MonoBehaviour
             animator.SetFloat("Horizontal", 1);
             animator.SetFloat("Vertical", 0);
             animator.SetFloat("Speed", 1);
-            transform.position = new Vector3(transform.position.x + 0.04f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
             return;
         }
         movement.x = joystick.Horizontal;

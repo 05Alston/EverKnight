@@ -416,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
@@ -2083,7 +2083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
@@ -2488,7 +2488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
@@ -4323,7 +4323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
@@ -7384,8 +7384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da80cfa231a97d4a9a3b15d7024fb0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 100
   touchStart: 0
+  Joystick: {fileID: 575455497}
 --- !u!61 &1722289475
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7516,7 +7517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
@@ -7766,7 +7767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder
@@ -8138,7 +8139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490792, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6719040118564490793, guid: 474ab6229526e78419a0a3412b6759c3, type: 3}
       propertyPath: m_RootOrder

@@ -12,7 +12,7 @@ public class AllyAttack : MonoBehaviour
     public float allyAttackRate = 0.5f;
     private float nextAttackTime = 4f;
     public GameObject dialogueManager;
-    private float moveTime = 2f;
+    private float moveTime = 3f;
     [HideInInspector]
     public bool isStuffDone = false;
     private bool areYouSure = true;
@@ -28,7 +28,7 @@ public class AllyAttack : MonoBehaviour
     {
         if (Time.time <= moveTime)
         {
-            transform.position = new Vector3(transform.position.x + 0.04f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
             return;
         }
         if (areYouSure)
@@ -40,7 +40,7 @@ public class AllyAttack : MonoBehaviour
         {
             Wait();
             animator.SetBool("isEnemiesDead", true);
-            transform.position = new Vector3(transform.position.x+0.04f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x+0.1f, transform.position.y, transform.position.z);
             return;
         }
         if (Time.time >= nextAttackTime && isStuffDone)
