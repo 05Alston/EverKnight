@@ -19,4 +19,9 @@ public class LevelController : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
+    public void ResetProgress()
+    {
+        PlayerPrefs.SetInt("currentLevel", 0);
+        PlayerPrefs.SetInt("Tutorial", 0);
+    }
 }

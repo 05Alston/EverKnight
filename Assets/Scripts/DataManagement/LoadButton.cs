@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadButton : MonoBehaviour
 {
-    private GameObject player;
-    private GameObject ally;
-    private void Start()
+    public MainMenu tutorial;
+    public void Load()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        ally = GameObject.FindGameObjectWithTag("Ally");
+        if (PlayerPrefs.HasKey("currentLevel"))
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetInt("currentLevel"));
+            return;
+        }
+        tutorial.PlayGame();
+
     }
-    public void LoadInfo()
+    public int LoadInfo()
     {
-        Data data = SaveData.LoadState();
-        player.GetComponent<PlayerAttack>().attackDamage = data.attackDamage;
-        player.GetComponent<PlayerAttack>().attackRate = data.attackRate;
-        player.GetComponent<PlayerHealth>().health = data.currentHealth;
-        player.GetComponent<PlayerHealth>().numOfHearts = data.maxHealth;
-        player.GetComponent<PlayerMovement>().moveSpeed = data.moveSpeed;
-        ally.GetComponent<AllyAttack>().allyAttackRate = data.allyAttackRate;
+        return PlayerPrefs.GetInt("currentLevel");
     }
 }

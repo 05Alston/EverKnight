@@ -716,8 +716,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nTO BE CONTINUED\n\n\n\n\n\n\n\n\n\nMade by : Name,name\n\n\n\n\nAnimations
-    : \n\n\n\nPrograming : \n\n"
+  m_text: "\nTHANK YOU FOR PLAYING \n\n\n\n\n\n\n\n\n\nMade by : Alston & Shubham\n\n\n\n\nAnimations
+    : Shubham, Alston\n\nPrograming :  Shubham, Alston"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fb643a8f7d8d5244993fe5672ae79870, type: 2}
   m_sharedMaterial: {fileID: 145910113151211877, guid: fb643a8f7d8d5244993fe5672ae79870, type: 2}

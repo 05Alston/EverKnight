@@ -40,10 +40,6 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    public void Reset()
-    {
-        PlayerPrefs.DeleteAll();
-    }
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
